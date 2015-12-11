@@ -1,18 +1,22 @@
-Ball b; //declare a new ball called b
-Ball c;
+int count = 50;
+Ball[] balls = new Ball[count];
+
+
 
 void setup() {
   size(800, 600);
-  b = new Ball(200);      //initialize b as a new object of the Ball class
-  c = new Ball(100);
+  int i = 0;
+  while (i<count) {
+    balls[i] = new Ball(round(random(25, 50)));
+    i++;
+  }
 }
 
 void draw() {
   background(0);
-  b.display();         //call b's display() method
-  c.display();         //call c's display() method
-  b.move();            //call b's move() method
-  c.move();            //call c's move() method
-  b.walls();           //call b's walls() method
-  c.walls();           //call c's walls() method
+  for (int j=0; j<count; j++) {
+    balls[j].display();
+    balls[j].move();
+    balls[j].walls();
+  }
 }
